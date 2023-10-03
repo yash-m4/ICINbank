@@ -1,0 +1,18 @@
+<div class="header-container">
+   <div class="nav">
+      <img src="assets/bank.png" alt="My Image" width="60" height="60" style="margin-top: -15px;">
+      <p style="color: white;font-size: x-large;margin-left: 5px;">ICINB Bank</p>
+      <a [routerLink]="['/dashboard/home']">Home</a>
+      <!-- <a [routerLink]="['/dashboard/acount']">User Acount</a> -->
+      <ng-container *ngIf="isAdmin; else renameText">
+         <a [routerLink]="['/dashboard/acount']">User Accounts</a>
+       </ng-container>
+       <ng-template #renameText>
+         <a [routerLink]="['/dashboard/acount']">Accounts</a>
+       </ng-template>
+       <a (click)="transdialog()"  *ngIf="!isAdmin && isAccess">Transection</a>
+      <a [routerLink]="['/dashboard/ckrequest']" *ngIf="isAccess">Request</a>
+      <a [routerLink]="['/dashboard/profile']" *ngIf="!isAdmin">Profile</a>
+      <a (click)="logOut()" style="cursor: pointer;">Log Out</a>
+   </div>
+</div>

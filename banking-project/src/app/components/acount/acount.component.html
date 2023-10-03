@@ -1,0 +1,83 @@
+<div class="acount">
+  <div class="admin-acount" *ngIf="isAdmin">
+    <p style="font-size: x-large;">User Acounts Page</p>
+    <table>
+      <tr style="color: black;background-color: cadetblue;">
+        <th>UserName</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>ContactNo</th>
+        <th>PrimaryAcount</th>
+        <th>SecondaryAcount</th>
+        <th>LoginStatus</th>
+        <th>FunctionStatus</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let user of users" style="color: white;">
+        <td>{{user.userName}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.contactNo}}</td>
+        <td>{{user.primaryaccountNumber}}</td>
+        <td>{{user.savingaccountNumber}}</td>
+        <td>{{ user.status === 1 ? 'Enable' : 'Disable' }}</td>
+        <td>{{ user.functionAccess === 1 ? 'Enable' : 'Disable' }}</td>
+        <td><button class="btn btn-primary" (click)="openEditDialog(user)" style="width: 3cm;">Edit</button></td>
+      </tr>
+    </table>
+  </div>
+  <div class="user-acount" *ngIf="!isAdmin">
+    <p style="font-size: x-large;"> Acounts Page</p>
+    <div class="userAM">
+      <div id="firstA">
+        <div style=" background-color: aquamarine;height: 3cm;display: flex;border-bottom: 1px solid black;">
+          <p style="font-size: xx-large;">Primary Balance</p>
+          <p style="font-size: xx-large;margin-left: 3cm;">{{primaryBalance |currency: 'INR'}}</p>
+        </div>
+        <div style="display: flex;" *ngIf="isAccess" (click)="openPrimaryAcDialog()">
+          <p style="margin-top: -0.4cm;">view Details</p>
+          <mat-icon style="margin-top: 5px;">arrow_right</mat-icon>
+        </div>
+
+      </div>
+      <div id="firstB" *ngIf="isAccess" >
+        <div style=" background-color: aquamarine;height: 3cm;display: flex;border-bottom: 1px solid black;">
+          <mat-icon class="large-icon">credit_card</mat-icon>
+          <p>Deposit</p>
+        </div>
+        <div style="display: flex;" (click)="openTransDialog()">
+          <p style="margin-top: 5px;margin-left: 5px;">Go to Deposit </p>
+          <mat-icon style="margin-top: 5px;">arrow_right</mat-icon>
+        </div>
+      </div>
+      <div id="firstC" *ngIf="isAccess" >
+        <div style=" background-color: aquamarine;height: 3cm;display: flex;border-bottom: 1px solid black;">
+          <mat-icon class="large-icon">credit_card</mat-icon>
+          <p>Withdrawal</p>
+        </div>
+        <div style="display: flex;" (click)="openWithdrawalDialog()">
+          <p style="margin-top: 5px;margin-left: 5px;">Go to Withdral </p>
+          <mat-icon style="margin-top: 5px;">arrow_right</mat-icon>
+        </div>
+      </div>
+
+    </div>
+    <div class="userBM">
+      <div id="secondA">
+        <div style=" background-color: aquamarine;height: 3cm;display: flex;border-bottom: 1px solid black;">
+          <p style="font-size: xx-large;">Saving Balance</p>
+          <p style="font-size: xx-large;margin-left: 3cm;">{{savingBalance | currency: 'INR'}}</p>
+        </div>
+        <div style="display: flex;" (click)="openSavingAcDialog()" *ngIf="isAccess" >
+          <p style="margin-top: -0.4cm;">view Details</p>
+          <mat-icon style="margin-top: 5px;">arrow_right</mat-icon>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.profile{
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0px;
+    background-color: #bfdedc;
+}
+.profile-section{
+    display: flex;
+    padding-left: 5cm;
+}
+#profile-p{
+    height: 10cm;
+    width: 12cm;
+}
+#profile-a{
+    height: 10cm;
+    width: 12cm;
+    margin-left: 5px;
+}
+.title{
+    border: 1 px solid tomato;
+    background-color: tomato;
+    color: white;
+    height: 1cm;
+    width: 3cm;
+    padding: 3px 0px;
+    margin: 0px 10px;
+}
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    width: 8cm;
+    justify-content: center;
+    margin-left: 2cm;
+  }
+  th, td {
+    background-color: #96D4D4;
+  }

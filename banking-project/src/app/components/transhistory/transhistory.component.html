@@ -1,0 +1,67 @@
+<div style="background-color: aqua;" *ngIf="primary">
+    <p style="text-align: center;font-size: x-large;">Primary Acount</p>
+<table>
+    <tr style="color: black;background-color: cadetblue;">
+      <th>Transection date</th>
+      <th>Amount</th>
+      <th>TransectionType</th>
+      <th>Ref Number</th>
+    </tr>
+    <tr></tr>
+    <tr *ngFor="let his of history" style="color: white;">
+      <td>{{his.transectionDate}}</td>
+      <td>{{his.transferAmount}}</td>
+      <td *ngIf="his.acountUserId !==0"><span *ngIf="his.debitUserId === 0">Deposit</span>
+        <span *ngIf="his.creditUserId === 0">Withdrwal</span>
+      </td>
+      <td *ngIf="his.acountUserId ===0 && his.debitUserId == userId">Debit
+      </td>
+      <td *ngIf="his.acountUserId ===0 && his.debitUserId != userId">Credit
+      </td>
+      <td *ngIf="his.acountUserId !==0"><span *ngIf="his.debitUserId === 0">{{his.depositMedium}}</span>
+        <span *ngIf="his.creditUserId === 0">self</span>
+      </td>
+      <td *ngIf="his.acountUserId ===0 && his.debitUserId == userId">{{his.creditUserId}}
+      </td>
+      <td *ngIf="his.acountUserId ===0 && his.debitUserId != userId">{{his.debitUserId}}
+      </td>
+    </tr>
+  </table><br>
+  <div class="center-button">
+    <button type="submit" class="btn btn-primary" (click)="closeDialog()">Close</button>
+  </div>
+</div>
+
+<div style="background-color: aqua;" *ngIf="!primary">
+    <p style="text-align: center;font-size: x-large;">Saving Acount</p>
+    <table>
+      <tr style="color: black;background-color: cadetblue;">
+        <th>Transection date</th>
+        <th>Amount</th>
+        <th>TransectionType</th>
+        <th>Ref Number</th>
+      </tr>
+      <tr></tr>
+      <tr *ngFor="let his of history" style="color: white;">
+        <td>{{his.transectionDate}}</td>
+        <td>{{his.transferAmount}}</td>
+        <td *ngIf="his.acountUserId !==0"><span *ngIf="his.debitUserId === 0">Deposit</span>
+          <span *ngIf="his.creditUserId === 0">Withdrwal</span>
+        </td>
+        <td *ngIf="his.acountUserId ===0 && his.debitUserId == userId">Debit
+        </td>
+        <td *ngIf="his.acountUserId ===0 && his.debitUserId != userId">Credit
+        </td>
+        <td *ngIf="his.acountUserId !==0"><span *ngIf="his.debitUserId === 0">{{his.depositMedium}}</span>
+          <span *ngIf="his.creditUserId === 0">self</span>
+        </td>
+        <td *ngIf="his.acountUserId ===0 && his.debitUserId == userId">{{his.creditUserId}}
+        </td>
+        <td *ngIf="his.acountUserId ===0 && his.debitUserId != userId">{{his.debitUserId}}
+        </td>
+      </tr>
+    </table><br>
+    <div class="center-button">
+      <button type="submit" class="btn btn-primary" (click)="closeDialog()">Close</button>
+    </div>
+</div>

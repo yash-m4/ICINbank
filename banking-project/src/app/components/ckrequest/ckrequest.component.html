@@ -1,0 +1,69 @@
+<div class="main" *ngIf="!admin">
+    <div class="ck-request">
+        <div class="title">
+            <p style="font-size: x-large;font-weight: 450;margin-left: -2cm;color: #003366;">Check Book Request</p>
+            <p style="font-size:large;margin-left: -2cm;color:green;">{{message}}</p>
+        </div>
+        <div style="text-align: center;padding: 0px 1cm;">
+            <p style="margin-right: 5cm;color: #003366;">Pick an Acount</p>
+            <select style="width: 8cm;height: 1.1cm;" [(ngModel)]="selectedAccount">
+                <option>Primary</option>
+                <option>Saving</option>
+            </select><br><br />
+            <p style="margin-right: 6cm;color: #003366;">Descrption</p>
+            <textarea style="width: 8cm;" [(ngModel)]="description"></textarea><br><br>
+            <button type="button" class="btn " style="background-color: #003366;color:white;"
+                (click)="submitRequest()">Submit</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="acount" *ngIf="admin">
+    <div class="admin-acount">
+        <p style="font-size: x-large;">Check Book Request</p>
+        <div class="justify-content-left">
+            <button type="button" class="btn btn-primary" [ngClass]="{'btn-lg': isPendingButtonClicked}"
+                (click)="pendingReq()">Pending Request</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" (click)="approvedReq()"
+                [ngClass]="{'btn-lg': isApprovedButtonClicked}">Approved Request</button>
+        </div><br />
+        <table style="width: 100%;" *ngIf="isPendingButtonClicked">
+            <tr style="color: black;background-color: cadetblue;">
+                <th>UserID</th>
+                <th>UserName</th>
+                <th>AccountType</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let pendReq of ckPending" style="color: white;" >
+                <td>{{pendReq.userId}}</td>
+                <td>{{pendReq.userName}}</td>
+                <td>{{pendReq.acountType}}</td>
+                <td>{{pendReq.description}}</td>
+                <td>Pending</td>
+                <td><button  class="btn"
+                    [ngClass]="{'btn-primary': !pendReq.isApproved, 'btn-success': pendReq.isApproved}"
+                    style="width: 3cm;"
+                    (click)="approvedRequest(pendReq)">Approved</button></td>
+            </tr>
+        </table>
+        <table style="width: 100%;" *ngIf="isApprovedButtonClicked">
+            <tr style="color: black;background-color: cadetblue;">
+                <th>UserID</th>
+                <th>UserName</th>
+                <th>AccountType</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+            <tr *ngFor="let aprReq of ckAapproved" style="color: white;" >
+                <td>{{aprReq.userId}}</td>
+                <td>{{aprReq.userName}}</td>
+                <td>{{aprReq.acountType}}</td>
+                <td>{{aprReq.description}}</td>
+                <td style="font-weight: 450;">Approved</td>
+            </tr>
+        </table>
+    </div>
+</div>

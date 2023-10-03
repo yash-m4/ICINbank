@@ -1,0 +1,47 @@
+<div style="background-color: cyan;text-align: center;">
+    <p style="font-size: larger;">Update User Details</p>
+    <p style="color: green;font-size: large;">{{message}}</p>
+</div>
+<div>
+     <table style="width:100%">
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th> 
+          <th>Username</th>
+          <th>email</th>
+          <th>ConatctNo</th>
+          <th>PrimaryAccount</th> 
+          <th>SecondaryAccount</th>
+          <th>Status</th>
+          <th>fnStatus</th>
+        </tr>
+        <tr>
+          <td [contentEditable]="true" #firstNameCell>{{user.firstName}}</td>
+          <td [contentEditable]="true" #lstnameCell>{{user.lastName}}</td>
+          <td [contentEditable]="true" #usernameCell>{{user.userName}}</td>
+          <td [contentEditable]="true" #emailChange>{{user.email}}</td>
+          <td [contentEditable]="true" #contactChange>{{user.contactNo}}</td>
+          <td >{{user.primaryaccountNumber}}</td>
+          <td >{{user.savingaccountNumber}}</td>
+          <td > <mat-slide-toggle color="primary" [checked]="user.status === 1" (change)="toggleStatus(user)">
+        </mat-slide-toggle></td>
+        <td > <mat-slide-toggle color="primary" [checked]="user.functionAccess === 1" (change)="functionStatus(user)">
+        </mat-slide-toggle></td>
+        </tr>
+        
+      </table><br> 
+      <!-- <table>
+        <tr>
+          <td [contentEditable]="true" #usernameCell>{{ username }}</td>
+          <td [contentEditable]="true" #firstNameCell>{{ firstName }}</td>
+        </tr>
+      </table> -->
+      
+      <!-- <input type="text" [(ngModel)]="username"/>
+      <h3>{{username}}</h3> -->
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="closeDialog()">Cancel</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">Update</button>
+      </div>
+      
+</div>

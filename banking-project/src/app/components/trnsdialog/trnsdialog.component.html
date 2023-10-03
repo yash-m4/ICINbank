@@ -1,0 +1,55 @@
+<div class="deposit" *ngIf="isDeposit" style="background-color: #d5f0f5;">
+    <p style="color: white; background-color: black; text-align: center;">Deposit Amount</p>
+    <p style="color: green; text-align: center;">{{message}}</p>
+    <div style="padding: 6px 60px;">
+      <form (ngSubmit)="onDeposit()" #myForm="ngForm">
+        <div class="form-group">
+          <label for="accountType">Account Type:</label>
+          <select id="accountType" class="form-control" [(ngModel)]="selectedAccountType" name="selectedAccountType" required>
+            <option value="Primary">Primary</option>
+            <option value="Saving">Saving</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="creditCard">Credit Card Number:</label>
+          <input type="text" id="creditCard" class="form-control" [(ngModel)]="creditCardNumber" name="creditCardNumber" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="amount">Amount to Add:</label>
+          <input type="number" id="amount" class="form-control" [(ngModel)]="amountToAdd" name="amountToAdd" required>
+        </div><br>
+        <div class="center-button">
+          <button type="button" class="btn btn-primary" (click)="closeDialog()">Close</button>&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- for the Withdrwal -->
+  <div class="deposit" *ngIf="!isDeposit" style="background-color: #d5f0f5;">
+    <p style="color: white; background-color: black; text-align: center;">withdrawal Amount</p>
+    <p style="color: green; text-align: center;">{{message}}</p>
+    <div style="padding: 6px 60px;">
+      <form (ngSubmit)="onwithdrawal()" #myForm1="ngForm">
+        <div class="form-group">
+          <label for="accountType">Account Type:</label>
+          <select id="accountType" class="form-control" [(ngModel)]="selectedAccountType" name="selectedAccountType" required>
+            <option value="Primary">Primary</option>
+            <option value="Saving">Saving</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="amount">Amount to withdrawal:</label>
+          <input type="number" id="amount" class="form-control" [(ngModel)]="amountTowithdtraw" name="amountToAdd" required>
+        </div><br>
+        <div class="center-button">
+          <button type="button" class="btn btn-primary" (click)="closeDialog()">Close</button>&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" [disabled]="!myForm1.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

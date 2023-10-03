@@ -1,0 +1,35 @@
+.header-container{
+    border: 1px solid black;
+    height: 2cm;
+    background-color: #353935;
+
+}
+.nav{
+    display: flex;
+    padding: 20px 2cm;
+}
+.nav a {/* Adjust the value to control the space between the <p> elements */
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 40px;
+}
+.nav a:hover{
+    color: red;
+}
+.nav a.clicked{
+    color: green;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }

@@ -1,0 +1,36 @@
+.ck-request{
+    text-align: center;
+    padding: 5px 0px;
+    /* border: 1px solid red ; */
+    height: 10cm;
+    width: 20cm;
+    margin: 2cm 7cm;
+    background-color: #e1f2f2;
+}
+.click-btn{
+    height: 1cm;
+}
+.admin-acount{
+    justify-content: center;
+    }
+    .admin-acount{
+        justify-content: center;
+        margin: 1cm 4.5cm;
+    }
+    table {
+      font-family: arial, sans-serif;
+      width: 100%;
+    }
+    
+    td, th {
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #7f8385
+    }
+    tr:nth-child(odd) {
+        background-color: #7f8385
+      }
+   

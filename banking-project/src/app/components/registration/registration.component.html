@@ -1,0 +1,158 @@
+<!-- Section: Design Block -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<section class="background-radial-gradient overflow-hidden" style="min-height: 100vh;">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                    ICIN Bank <br />
+                    <span style="color: hsl(218, 81%, 75%)">Your Trusted Financial Partner</span>
+                </h1>
+                <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                    Offering innovative solutions, exceptional service, and secure banking to help you achieve your financial goals with confidence and peace of mind."
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                        <form [formGroup]="registrationForm" (ngSubmit)="register(registrationForm)">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example1">First name</label>&nbsp;
+                                        <small
+                                            *ngIf="registrationForm.controls['firstName'].invalid&& (registrationForm.controls['firstName'].touched || registrationForm.controls['firstName'].dirty)"
+                                            style="color: red;">Required</small>
+                                        <!-- <small *ngIf="registrationForm.controls['firstName'].invalid&& (registrationForm.controls['firstName'].touched || registrationForm.controls['firstName'].dirty) &&registrationForm.controls['firstName'].errors  && registrationForm.controls['firstName'].errors['required']" style="color: red;">Required</small>  -->
+                                        <input type="text" id="form3Example1" class="form-control" name="firstName"
+                                            formControlName="firstName"
+                                            [ngClass]="{ 'red-border': registrationForm.controls['firstName'].invalid&& registrationForm.controls['firstName'].touched}" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example1">Last name</label>&nbsp;
+                                        <small
+                                            *ngIf="registrationForm.controls['lastName'].invalid&& (registrationForm.controls['lastName'].touched || registrationForm.controls['lastName'].dirty)"
+                                            style="color: red;">Required</small>
+                                        <!-- <small *ngIf="registrationForm.controls['firstName'].invalid&& (registrationForm.controls['firstName'].touched || registrationForm.controls['firstName'].dirty) &&registrationForm.controls['firstName'].errors  && registrationForm.controls['firstName'].errors['required']" style="color: red;">Required</small>  -->
+                                        <input type="text" id="form3Example1" class="form-control" name="lastName"
+                                            formControlName="lastName"
+                                            [ngClass]="{ 'red-border': registrationForm.controls['lastName'].invalid&& registrationForm.controls['lastName'].touched}" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email input and Phone Number -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example3">Email</label>&nbsp;
+                                        <small
+                                            *ngIf="registrationForm.controls['email'].errors && registrationForm.controls['email'].errors['required'] && registrationForm.controls['email'].touched"
+                                            style="color: red;">Required </small>
+                                        <small
+                                            *ngIf="registrationForm.controls['email'].errors && registrationForm.controls['email'].errors['email']"
+                                            style="color: red;">Enter Correct Email</small>
+                                        <input type="email" id="form3Example1" class="form-control" name="email"
+                                            formControlName="email"
+                                            [ngClass]="{ 'red-border': registrationForm.controls['email'].invalid&& registrationForm.controls['email'].touched}" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example3">Mobile Number</label>&nbsp;
+                                        <small
+                                            *ngIf="registrationForm.controls['mobNumber'].errors && registrationForm.controls['mobNumber'].errors['required'] && registrationForm.controls['mobNumber'].touched"
+                                            style="color: red;"> Required </small>
+                                        <small
+                                            *ngIf="registrationForm.controls['mobNumber'].errors && registrationForm.controls['mobNumber'].errors['pattern'] && registrationForm.controls['mobNumber'].touched"
+                                            style="color: red;">Enter Coreect Mobile Number </small>
+                                        <input type="text" id="form3Example4" class="form-control" name="mobNumber"
+                                            formControlName="mobNumber"
+                                            [ngClass]="{ 'red-border': registrationForm.controls['mobNumber'].invalid&& registrationForm.controls['mobNumber'].touched}" />
+                                    </div>
+                                </div>
+                            </div>
+
+                    
+
+
+                            <!-- Username  input -->
+                            <div class="form-outline mb-3">
+                                <label class="form-label" for="form3Example3">Username</label>
+                                <small
+                                    *ngIf="registrationForm.controls['userName'].errors && registrationForm.controls['userName'].errors['required']&& registrationForm.controls['userName'].touched"
+                                    style="color: red;">Required </small>
+                                <small
+                                    *ngIf="registrationForm.controls['userName'].errors && registrationForm.controls['userName'].errors['minlength']"
+                                    style="color: red;">Minimum 4 char Required </small>
+                                <small
+                                    *ngIf="registrationForm.controls['userName'].errors && registrationForm.controls['userName'].errors['maxlength']"
+                                    style="color: red;">Maximun 10 char Required </small>
+                                <input type="text" id="form3Example3" class="form-control" name="userName"
+                                    formControlName="userName"
+                                    [ngClass]="{ 'red-border': registrationForm.controls['userName'].invalid && registrationForm.controls['userName'].touched}" />
+                            </div>
+
+                            <!-- Password and Confirm Password -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example9">Password</label>&nbsp;
+                                        <small
+                                            *ngIf="registrationForm.controls['password'].errors && registrationForm.controls['password'].errors['required']&& registrationForm.controls['password'].touched"
+                                            style="color: red;">Required </small>
+                                        <input type="password" id="form3Example9" class="form-control"
+                                            formControlName="password" [ngClass]="{ 'red-border': registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" *ngIf="!registrationForm.controls['password'].invalid" >
+                                    <div class="form-outline">
+                                        <label class="form-label" for="form3Example10">Confirm Password</label>&nbsp;
+                                        <small
+                                            *ngIf="registrationForm.controls['confirmPassword'].errors && registrationForm.controls['confirmPassword'].errors['required']&& registrationForm.controls['confirmPassword'].touched"
+                                            style="color: red;">Required </small>
+                                        <input type="password"  id="form3Example10" class="form-control" formControlName="confirmPassword" [ngClass]="{ 'red-border': registrationForm.controls['confirmPassword'].invalid && registrationForm.controls['confirmPassword'].touched}" [disabled]="registrationForm.controls['password'].invalid"  />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-50" *ngIf="registrationForm.controls['password'].value">
+                                <div class="row" style="color: #495057; font-size: 12px; font-style: italic">
+                                    <div class="col-sm-6">
+                                        <span class="fas fa-times 8-char" [ngStyle]="{
+                                            'color': registrationForm.controls['password'].errors && registrationForm.controls['password'].errors['minlength']? '#FF0004' : 'green',
+                                            'font-size': '18px'
+                                          }"></span> 8 Characters Long <br>
+                                        <span class="fas fa-times uppercase-char" [ngStyle]="{ 'color': upperCheck ? 'green' : 'red','font-size': '18px' }"></span> One Uppercase Letter{{upperCheck}} <br>
+                                        <span [ngStyle]="{
+                                              'color': registrationForm.controls['password'].errors && registrationForm.controls['password'].errors['specialCharacterRequired'] ? '#FF0004' : 'green',
+                                              'font-size': '18px'
+                                            }" class="fas fa-times special-char">
+                                        </span>
+                                        One Special Letter
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span class="fas fa-times lowercase-char" [ngStyle]="{ 'color': lowerCheck ? 'green' : 'red','font-size': '18px' }"></span> One Lowercase Letter{{lowerCheck}}<br>
+                                        <span class="fas fa-times number-char" [ngStyle]="{ 'color': numberCheck ? 'green' : 'red','font-size': '18px' }"></span> One Number {{numberCheck}}<br> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-50" *ngIf="registrationForm.controls['confirmPassword'].value">
+                            <small *ngIf="!passCheck" style="color: red;">Please make sure your password matches with the above</small>
+                            <small  *ngIf="passCheck" style="color: green;">Password Match</small>
+                            </div>
+
+                            <!-- Submit button -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block mb-5" >
+                                    Submit
+                                </button>
+                            </div>
+                            <!-- Register buttons -->
+                            <div class="text-center">
+                                <p><a [routerLink]="['/login']">Login here </a></p>
+                               

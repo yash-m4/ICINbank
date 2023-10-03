@@ -1,0 +1,79 @@
+.admin-acount{
+justify-content: center;
+}
+.admin-acount{
+    justify-content: center;
+    margin: 1cm 2cm;
+}
+.user-acount{
+  justify-content: center;
+  margin: 2cm 2cm;
+}
+table {
+  font-family: arial, sans-serif;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #7f8385
+}
+tr:nth-child(odd) {
+    background-color: #7f8385
+  }
+/* edit-dialog/edit-dialog.component.css */
+.dialog-content {
+  background-color: lightblue; /* Set the background color you want */
+  padding: 20px; /* Add padding for spacing if needed */
+  /* Add any other styles you want */
+}
+.userAM{
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between; 
+}
+.userBM{
+  display: flex;
+  padding: 20px 20px;
+  justify-content: space-between; 
+}
+#firstA{
+  border: 1px solid red;
+  grid-area: 60%;
+  height: 4cm;
+  width: 60%;
+  margin-right: 30px;
+  
+}
+#secondA{
+  border: 1px solid red;
+  grid-area: 55%;
+  height: 4cm;
+  width: 52.5%;
+  
+}
+#firstA p{
+  padding: 20px 10px;
+}
+#secondA p{
+  padding: 20px 10px;
+}
+#firstB{
+  border:1px solid red;
+  grid-area: 40%;
+  height: 4cm;
+  width:25%;;
+  margin-right: 10px;
+
+}
+#firstC{
+  border:1px solid red;
+  grid-area: 20%;
+  height: 4cm;
+  width: 25%;;
+
+}

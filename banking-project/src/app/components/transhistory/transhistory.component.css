@@ -1,0 +1,23 @@
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+  }
+  
+  td, th {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #7f8385
+  }
+  tr:nth-child(odd) {
+      background-color: #7f8385
+    }
+    
+    .center-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%; /* This is optional and depends on your layout */
+    }
